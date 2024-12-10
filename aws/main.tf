@@ -5,14 +5,14 @@ provider "aws" {
   region = var.aws_region
 }
 
-/* resource "aws_iam_openid_connect_provider" "stacks_openid_provider" {
+resource "aws_iam_openid_connect_provider" "stacks_openid_provider" {
   url            = "https://app.terraform.io"
   client_id_list = ["aws.workload.identity"]
 
   # You can verify the thumbprint separately, but this is the correct
   # thumbprint for https://app.terraform.io as of 2024/08/07.
   thumbprint_list = ["9e99a48a9960b14926bb7f3b02e22da2b0ab7280"]
-} */
+} 
 
 resource "aws_iam_role" "stacks_role" {
   name               = "stacks-${var.tfc_organization}-${var.tfc_project}-${var.tfc_stack}"
